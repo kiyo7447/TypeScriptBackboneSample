@@ -30,5 +30,3 @@ window.onload = () => {
 };
 
 
-
-
