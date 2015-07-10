@@ -31,6 +31,12 @@
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
+    <Content Include="Thmes\unitepos.css">
+      <DependentUpon>unitepos.scss</DependentUpon>
+    </Content>
+    <Content Include="Thmes\unitepos.min.css">
+      <DependentUpon>unitepos.css</DependentUpon>
+    </Content>
     <Content Include="web.config" />
     <Content Include="Scripts\underscore.min.map" />
   </ItemGroup>
@@ -42,6 +48,10 @@
     <TypeScriptCompile Include="Scripts\typings\unitepos\unitepos.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Thmes\unitepos.scss" />
+    <Content Include="Thmes\unitepos.css.map">
+      <DependentUpon>unitepos.css</DependentUpon>
+    </Content>
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

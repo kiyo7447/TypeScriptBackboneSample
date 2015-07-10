@@ -1,5 +1,6 @@
 ﻿/// <reference path="../underscore/underscore.d.ts" />
 /// <reference path="../jquery/jquery.d.ts" />
+
 declare module Backbone {
     export class Model {
         constructor(attr?, opts?);
@@ -42,6 +43,7 @@ declare module Backbone {
     }
 }
 
+
 //interface JQuery {
 //    fadeIn(): JQuery;
 //    fadeOut(): JQuery;
@@ -67,5 +69,7 @@ declare module Backbone {
 //    template(template: string): (model: any) => string;
 //    bindAll(object: any, ...methodNames: string[]): void;
 //};
+
+//Backbone.localStorage
 declare var Store: any;
 
