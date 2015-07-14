@@ -19,6 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="Docs\ReadMe.txt" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="Scripts\backbone.js" />
