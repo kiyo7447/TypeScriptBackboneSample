@@ -85,6 +85,21 @@ class ModelCommon extends ModelBase {
 }
 
 
+class ViewBase<ModelBase extends Backbone.Model> extends Backbone.View<Backbone.Model> {
+	constructor(options?) {
+		console.log("ViewBase.constructor1");
+		super(options);
+		console.log("ViewBase.constructor2");
+	}
+}
+
+class ViewCommon<ModelCommon> extends ViewBase<ModelBase> {
+	constructor(options?) {
+		super(options);
+	}
+}
+
+
 //Backbone.Modelを継承したAddressクラスを定義
 class Address extends ModelCommon {
 	//デフォルト値
@@ -163,7 +178,7 @@ class AddressCollection extends Backbone.Collection<Address>
 
 var g_Addresses = new AddressCollection();
 
-class AddressView<T extends Backbone.Model> extends Backbone.View<Backbone.Model> {
+class AddressView<T extends ModelCommon> extends ViewCommon<ModelCommon> {
 	
 	model: T;
 	input: JQuery;
@@ -221,7 +236,7 @@ class AddressView<T extends Backbone.Model> extends Backbone.View<Backbone.Model
 
 //AddressView.prototype.events => {};
 
-class AppView<T extends Backbone.Model> extends Backbone.View<Backbone.Model> {
+class AppView<T extends ModelCommon> extends ViewCommon<ModelCommon> {
 
 	//events = {
 	//	"keypress #new-address": "_keyPress",

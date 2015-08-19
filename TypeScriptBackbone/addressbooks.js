@@ -81,6 +81,22 @@ var ModelCommon = (function (_super) {
     };
     return ModelCommon;
 })(ModelBase);
+var ViewBase = (function (_super) {
+    __extends(ViewBase, _super);
+    function ViewBase(options) {
+        console.log("ViewBase.constructor1");
+        _super.call(this, options);
+        console.log("ViewBase.constructor2");
+    }
+    return ViewBase;
+})(Backbone.View);
+var ViewCommon = (function (_super) {
+    __extends(ViewCommon, _super);
+    function ViewCommon(options) {
+        _super.call(this, options);
+    }
+    return ViewCommon;
+})(ViewBase);
 //Backbone.Modelを継承したAddressクラスを定義
 var Address = (function (_super) {
     __extends(Address, _super);
@@ -189,7 +205,7 @@ var AddressView = (function (_super) {
         this.model.destroy();
     };
     return AddressView;
-})(Backbone.View);
+})(ViewCommon);
 //AddressView.prototype.events => {};
 var AppView = (function (_super) {
     __extends(AppView, _super);
@@ -229,7 +245,7 @@ var AppView = (function (_super) {
         }
     };
     return AppView;
-})(Backbone.View);
+})(ViewCommon);
 $(function () {
     new AppView({ model: g_Addresses });
     var dec = {};
