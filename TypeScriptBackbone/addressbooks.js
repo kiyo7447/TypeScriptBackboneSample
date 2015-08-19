@@ -194,11 +194,11 @@ var AddressView = (function (_super) {
 var AppView = (function (_super) {
     __extends(AppView, _super);
     function AppView(options) {
-        _super.call(this, options);
         this.events = {
             "keypress #new-address": "_keyPress",
             "click #delete-all": "_deleteAll"
         };
+        _super.call(this, options);
         //this.model = options.model;
         this.setElement($("#app"), true);
         this.input = this.$("#new-address");
@@ -207,7 +207,8 @@ var AppView = (function (_super) {
         g_Addresses.fetch();
     }
     AppView.prototype._add = function (address) {
-        var view = new AddressView({ model: address });
+        var param = { model: address };
+        var view = new AddressView(param);
         this.$("#list").append(view._render().el);
     };
     AppView.prototype._addAll = function () {

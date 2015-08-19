@@ -1,5 +1,9 @@
 ﻿/// <reference path="../underscore/underscore.d.ts" />
 /// <reference path="../jquery/jquery.d.ts" />
+/// <reference path="../backbone/backbone.d.ts" />
+
+/*
+ジェネリックを使わないBackboneのTypeScript化は行き詰まるのでサンプルを作成
 
 declare module Backbone {
     export class Model {
@@ -42,6 +46,7 @@ declare module Backbone {
         static extend: any;
     }
 }
+ */
 
 
 //interface JQuery {

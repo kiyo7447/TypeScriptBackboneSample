@@ -44,6 +44,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="addressbooks.ts" />
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="Scripts\typings\backbone\backbone.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\underscore\underscore.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\unitepos\unitepos.d.ts" />

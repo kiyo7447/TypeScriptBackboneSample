@@ -163,9 +163,9 @@ class AddressCollection extends Backbone.Collection<Address>
 
 var g_Addresses = new AddressCollection();
 
-class AddressView extends Backbone.View {
+class AddressView<T extends Backbone.Model> extends Backbone.View<Backbone.Model> {
 	
-	model: Address;
+	model: T;
 	input: JQuery;
 
 	constructor(options?) {
@@ -175,7 +175,7 @@ class AddressView extends Backbone.View {
 		//this.className = "address-item";
 
 		//イベントハンドラの設定				
-		this.events =  {
+		this.events =  <any>{
 			"dblclick label.name": "_rename",
 			"click button.delete": "_clear"
 		};
@@ -221,16 +221,21 @@ class AddressView extends Backbone.View {
 
 //AddressView.prototype.events => {};
 
-class AppView extends Backbone.View {
+class AppView<T extends Backbone.Model> extends Backbone.View<Backbone.Model> {
 
-	events = {
-		"keypress #new-address": "_keyPress",
-		"click #delete-all": "_deleteAll"
-	};
+	//events = {
+	//	"keypress #new-address": "_keyPress",
+	//	"click #delete-all": "_deleteAll"
+	//};
 	input: JQuery;
-	model: Address;				
+	model: T;				
 
 	constructor(options?) {
+		this.events = <any>{
+				"keypress #new-address": "_keyPress",
+				"click #delete-all": "_deleteAll"
+			};
+
 		super(options);
 
 		//this.model = options.model;
@@ -245,9 +250,13 @@ class AppView extends Backbone.View {
 
 	}
 
-	_add(address:Address) {
-		var view: AddressView = new AddressView({ model: address });
+	_add(address: Address) {
+
+		var param: Backbone.ViewOptions<Address> = { model: address};
+
+		var view: AddressView<T> = new AddressView<T>(param);
 		this.$("#list").append(view._render().el);
+
 	}
 
 
