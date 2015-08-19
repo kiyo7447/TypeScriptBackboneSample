@@ -183,6 +183,8 @@ var AddressView = (function (_super) {
         //jquery.d.tsをNuGetで取得して対応
         var e = $('<label class="name">').text(this.model.get('name'));
         $(this.el).html(e[0].outerHTML).append("<button class='delete'>Delete</button>");
+        //正常系は前回のエラーをクリア
+        $("#msg").html("").hide();
         return this;
     };
     //d,eは空です。
@@ -215,8 +217,11 @@ var AppView = (function (_super) {
             "click #delete-all": "_deleteAll"
         };
         _super.call(this, options);
-        //this.model = options.model;
+        //対象の画面
         this.setElement($("#app"), true);
+        //↑を↓に変換したが動作しなかった。
+        //this.el = $("#app")[0];
+        //入力テキストコントロールのイベントを拾う
         this.input = this.$("#new-address");
         g_Addresses.bind("add", this._add, this);
         g_Addresses.bind("reset", this._addAll, this);

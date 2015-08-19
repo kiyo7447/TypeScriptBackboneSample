@@ -208,6 +208,9 @@ class AddressView<T extends ModelCommon> extends ViewCommon<ModelCommon> {
 		//jquery.d.tsをNuGetで取得して対応
 		var e = $('<label class="name">').text(this.model.get('name'));
 		$(this.el).html(e[0].outerHTML).append("<button class='delete'>Delete</button>");
+
+		//正常系は前回のエラーをクリア
+		$("#msg").html("").hide();
 		return this;
 	}
 
@@ -253,16 +256,21 @@ class AppView<T extends ModelCommon> extends ViewCommon<ModelCommon> {
 
 		super(options);
 
-		//this.model = options.model;
-		
+		//対象の画面
 		this.setElement($("#app"), true);
+		//↑を↓に変換したが動作しなかった。
+		//this.el = $("#app")[0];
+
+
+		//入力テキストコントロールのイベントを拾う
 		this.input = this.$("#new-address");
 
+		
 		g_Addresses.bind("add", this._add, this);
 		g_Addresses.bind("reset", this._addAll, this);
 		g_Addresses.fetch();
 
-
+		
 	}
 
 	_add(address: Address) {
